@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Filter Age</title>
+  <style>
+    body {
+  font-family: Arial;
+  padding: 20px;
+}
+.output {
+  margin-top: 15px;
+}
+
+
+  </style>
+</head>
+<body>
+  <h2>Filter People (Age ≥ 18)</h2>
+  <input type="text" id="name" placeholder="Name">
+  <input type="number" id="age" placeholder="Age">
+  <button onclick="addPerson()">Add</button>
+  <button onclick="filterAdults()">Filter</button>
+  <div id="output" class="output"></div>
+  <script>
+ var people = [];
+
+function addPerson() {
+  var name = document.getElementById("name").value;
+  var age = document.getElementById("age").value;
+
+  var person = {
+    name: name,
+    age: Number(age)
+  };
+
+  people.push(person);
+
+  document.getElementById("output").innerText = "Person added: " + name + " (" + age + ")";
+}
+
+function filterAdults() {
+  var result = "People age 18 or above:\n";
+
+  for (var i = 0; i < people.length; i++) {
+    if (people[i].age >= 18) {
+      result = result + people[i].name + " (" + people[i].age + ")\n";
+    }
+  }
+
+  document.getElementById("output").innerText = result;
+}
+
+  </script>
+</body>
+</html>

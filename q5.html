@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Count Frequency</title>
+  <style>
+    body {
+  font-family: Arial;
+  padding: 20px;
+}
+.output {
+  margin-top: 15px;
+  white-space: pre-line;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Count Frequency of Elements</h2>
+  <input type="text" id="input" placeholder="Enter comma-separated values">
+  <button onclick="countFrequency()">Count</button>
+  <div id="output" class="output"></div>
+<script>
+  
+ function countFrequency() {
+  let input = document.getElementById("input").value;
+  let arr = input.split(",").map(function(s) {
+    return s.trim();
+  });
+
+  let count = {};
+
+  arr.forEach(function(val) {
+    if (count[val] === undefined) {
+      count[val] = 1;
+    } else {
+      count[val] = count[val] + 1;
+    }
+  }); 
+
+  let result = "";
+  for (let key in count) {
+    result += key + ": " + count[key] + " times\n";
+  }
+
+  document.getElementById("output").innerText = result;
+}
+
+</script>
+</body>
+</html>

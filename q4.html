@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Unique Element</title>
+<style>
+    body {
+  font-family: Arial;
+  padding: 20px;
+}
+.output {
+  margin-top: 15px;
+}
+
+</style>
+</head>
+<body>
+  <h2>Add Unique Element</h2>
+  <input type="text" id="input" placeholder="Enter value">
+  <button onclick="addUnique()">Add</button>
+  <div id="output" class="output"></div>
+  <script >
+var arr = [];
+
+function addUnique() {
+  var value = document.getElementById("input").value;
+
+  var alreadyExists = false;
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] == value) {
+      alreadyExists = true;
+      break;
+    }
+  }
+
+  if (alreadyExists == false) {
+    arr.push(value);
+    var result = "Array: ";
+    for (var j = 0; j < arr.length; j++) {
+      result = result + arr[j];
+      if (j < arr.length - 1) {
+        result = result + ", ";
+      }
+    }
+    document.getElementById("output").innerText = result;
+  } else {
+    document.getElementById("output").innerText = "Value already exists in array.";
+  }
+}
+
+
+
+  </script>
+</body>
+</html>

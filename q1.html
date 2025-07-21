@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Unique Elements</title>
+  <style>
+    body {
+  font-family: Arial;
+  padding: 20px;
+}
+.output {
+  margin-top: 15px;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Find Unique Elements</h2>
+  <input type="text" id="input" placeholder="Enter elements separated by comma">
+  <button onclick="findUnique()">Find Unique</button>
+  <div id="output" class="output"></div>
+
+  <script>
+    function findUnique() {
+  var input = document.getElementById("input").value;
+  var elements = input.split(",");
+  var unique = [];
+  
+  for (var i = 0; i < elements.length; i++) {
+    var item = elements[i];
+
+    var alreadyExists = false;
+    for (var j = 0; j < unique.length; j++) {
+      if (unique[j] === item) {
+        alreadyExists = true;
+        break;
+      }
+    }
+
+    if (!alreadyExists) {
+      unique.push(item);
+    }
+  }
+
+  document.getElementById("output").innerText = "Unique Elements: " + unique.join(", ");
+}
+
+  </script>
+</body>
+</html>

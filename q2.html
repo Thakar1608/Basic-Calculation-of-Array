@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add to Array</title>
+  <style>
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+.output {
+  margin-top: 15px;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Add Element to Array</h2>
+  <input type="text" id="input" placeholder="Enter element">
+  <button onclick="addToArray()">Add</button>
+  <div id="output" class="output"></div>
+  <script>
+ 
+    let arr = [];
+
+function addToArray() {
+  let value = document.getElementById("input").value;
+  arr.push(value);
+  document.getElementById("output").innerText = "Array: " + arr.join(", ");
+}
+
+  </script>
+</body>
+</html>
