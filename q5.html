@@ -21,13 +21,23 @@
   <div id="output" class="output"></div>
 <script>
   
- function countFrequency() {
-  let input = document.getElementById("input").value;
-  let arr = input.split(",").map(function(s) {
-    return s.trim();
-  });
+ var arr = [];
 
-  let count = {};
+function addValue() {
+  var input = document.getElementById("input");
+  var value = input.value;
+
+  if (value !== "") {
+    arr.push(value);
+    input.value = ""; 
+    document.getElementById("output").innerText = "Value added: " + value;
+  } else {
+    document.getElementById("output").innerText = "Please enter a value.";
+  }
+}
+
+function countFrequency() {
+  var count = {};
 
   arr.forEach(function(val) {
     if (count[val] === undefined) {
@@ -35,15 +45,16 @@
     } else {
       count[val] = count[val] + 1;
     }
-  }); 
+  });
 
-  let result = "";
-  for (let key in count) {
+  var result = "";
+  for (var key in count) {
     result += key + ": " + count[key] + " times\n";
   }
 
   document.getElementById("output").innerText = result;
 }
+
 
 </script>
 </body>
